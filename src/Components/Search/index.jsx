@@ -6,11 +6,16 @@ export default class Search extends Component {
 //取input的输入(连续解构赋值+重命名)
     const {keyWordElement:{value:keyWord}} = this
 //发送网络请求
-//https://api.github.com/search/users?q={query}{&page,per_page,sort,order}
+//请求前更新状态
+    this.props.updateState({isFirst:false, isLoading:true})
+
     axios.get(`api1/search/users?q=${keyWord}`).then(
-      response =>{return this.props.saveUsers(response.data.items),
-      console.log(response.data)},
-      error =>{ return console.log('失败了',error);}
+      response =>{
+        this.props.updateState({users:response.data.items, isLoading: false,isFirst:false})
+      },
+      error =>{ 
+        this.props.updateState({isLoading:false,err:error.message,isFirst:false})
+      }
     )
   }
 

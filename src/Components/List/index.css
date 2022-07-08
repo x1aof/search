@@ -3,6 +3,7 @@
     padding-top: 3rem;
     padding-bottom: 3rem;
     background-color: #f7f7f7;
+
   }
   
   .card {
@@ -17,9 +18,14 @@
   .card > img {
     margin-bottom: .75rem;
     border-radius: 100px;
+  
   }
   
   .card-text {
     font-size: 85%;
+    
   }
   
+  .smile {
+    text-align: center;
+  }
