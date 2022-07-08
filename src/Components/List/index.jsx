@@ -9,7 +9,7 @@ export default class List extends Component {
             isFirst ? <h2 className="smile">^-^</h2> :
             isLoading ? <h2>is loading...</h2>: 
             Err ? <h2 style={{color:'red'}}>{Err}</h2> :
-            users.map((userObj)=>{
+            (users || []).map((userObj)=>{
                 return (
                     <div key = {userObj.id} className="card">
                         <a href={userObj.html_url} target="_blank">
